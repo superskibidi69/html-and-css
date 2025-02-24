@@ -1,140 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fire</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
-            overflow: hidden;
-        }
-
-        .fire-container {
-            position: relative;
-            width: 200px; /* Wider container */
-            height: 300px; /* Taller container */
-        }
-        
-        .fire {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px; /* Wider fire */
-            height: 150px; /* Make it more circular */
-            background: radial-gradient(circle, #ff4500, #ff8c00, #ff4500);
-            border-radius: 50%; /* Perfect circle */
-            box-shadow: 0 0 50px #ff4500, 0 0 100px #ff8c00, 0 0 150px #ff4500; /* Larger glow */
-            animation: flicker 0.1s infinite alternate;
-        }
-
-        @keyframes flicker {
-            0% {
-                transform: translateX(-50%) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(-50%) scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        .spark {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 6px; /* Slightly larger sparks */
-            height: 6px;
-            background: #ff8c00;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ff8c00; /* Larger glow for sparks */
-            animation: rise 1s infinite ease-out;
-        }
-
-        @keyframes rise {
-            0% {
-                transform: translateY(0) translateX(-50%);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-300px) translateX(-50%); /* Match container height */
-                opacity: 0;
-            }
-        }
-
-        .smoke {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            background: #333;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: smoke-rise 4s infinite ease-out;
-        }
-
-        @keyframes smoke-rise {
-            0% {
-                transform: translateY(0) translateX(-50%) scale(1);
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(-400px) translateX(-50%) scale(2);
-                opacity: 0;
-            }
-        }
-    </style>
+<title>CSS ANIMATIONS</title>
+<style>
+body {
+overflow: hidden
+justify-content: center
+align-items: center
+}
+</style>
 </head>
 <body>
-    <div class="fire-container">
-        <div class="fire"></div>
-    </div>
-
-    <script>
-        // JavaScript to create dynamic sparks and smoke
-        const fireContainer = document.querySelector('.fire-container');
-
-        function createSpark() {
-            const spark = document.createElement('div');
-            spark.classList.add('spark');
-            spark.style.left = `${Math.random() * 140 + 30}px`; // Random horizontal position within the fire width
-            fireContainer.appendChild(spark);
-
-            // Remove spark after animation ends
-            spark.addEventListener('animationend', () => {
-                spark.remove();
-            });
+    <style>
+        h1 {
+animation: move 6s ease-in-out infinite
         }
-
-        function createSmoke() {
-            const smoke = document.createElement('div');
-            smoke.classList.add('smoke');
-            smoke.style.left = `${Math.random() * 140 + 30}px`; // Random horizontal position within the fire width
-            fireContainer.appendChild(smoke);
-
-            // Remove smoke after animation ends
-            smoke.addEventListener('animationend', () => {
-                smoke.remove();
-            });
-        }
-
-        // Generate sparks at intervals
-        setInterval(createSpark, 100);
-
-        // Generate smoke at intervals
-        setInterval(createSmoke, 500);
-    </script>
-<audio autoplay loop>
-  <source src="https://audio.jukehost.co.uk/u7SF1RzaQ3TpTe3TtWhLZtPna1fDWjB4" type="audio/mpeg">
-  Yo
-    </audio>
+@keyframes move {
+    0% {
+        top: 0px;
+    }
+       50% {
+           top: 30px;
+           left: 30px;
+       }
+    100% {
+        top: 0px;
+        left: 0px;
+    </style>
+<h1>css animations</h1>
 </body>
 </html>
