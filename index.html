@@ -8,20 +8,7 @@
             background: #0efa5f;
             margin: 0; /* Remove default margin */
         }
-.rect {
-    animation: changecolor 4s ease-in-out infinite;
-}
-        @keyframes changecolor {
-            0% {
-                background: #0ff;
-            }
-            20% {
-                background: #FF5733;
-            }
-            100% {
-                background: #0ff;
-            }
-        }
+
         h1 {
             position: relative; /* Required for top/left properties to work */
             animation: move 3s ease-in-out infinite;
@@ -68,10 +55,5 @@
 <body>
     <h1>CSS ANIMATIONS</h1>
     <p>This site will show CSS animations and other HTML stuff.</p>
-
-   <!-- If you want to draw a rectangle, use <canvas> -->
-    <div class="rect">
-    <canvas id="myCanvas" width="150" height="150" style="border:0px solid #000000;"></canvas>
-    </div>
 </body>
 </html>
