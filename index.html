@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CSS ANIMATIONS</title>
-<style>
-body {
-overflow: hidden
-justify-content: center
-align-items: center
-}
-</style>
+    <title>CSS ANIMATIONS</title>
+    <style>
+        body {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensure the body takes full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+
+        h1 {
+            position: relative; /* Required for top/left properties to work */
+            animation: move 3s ease-in-out infinite;
+        }
+
+        @keyframes move {
+            0% {
+                top: 0px;
+                left: 0px;
+            }
+            50% {
+                top: 30px;
+                left: 30px;
+            }
+            100% {
+                top: 0px;
+                left: 0px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <style>
-        h1 {
-animation: move 6s ease-in-out infinite
-        }
-@keyframes move {
-    0% {
-        top: 0px;
-    }
-       50% {
-           top: 30px;
-           left: 30px;
-       }
-    100% {
-        top: 0px;
-        left: 0px;
-    }
-    </style>
-<h1>css animations</h1>
+    <h1>CSS ANIMATIONS</h1>
 </body>
 </html>
