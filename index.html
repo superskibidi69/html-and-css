@@ -7,7 +7,20 @@
             overflow: hidden;
             margin: 0; /* Remove default margin */
         }
-
+.rect {
+    animation: changecolor 4s ease-in-out infinite;
+}
+        @keyframes changecolor {
+            0% {
+                background: #0ff;
+            }
+            20% {
+                background: #5ff4ff;
+            }
+            100% {
+                #0ff;
+            }
+        }
         h1 {
             position: relative; /* Required for top/left properties to work */
             animation: move 3s ease-in-out infinite;
@@ -33,7 +46,8 @@
     <h1>CSS ANIMATIONS</h1>
     <p>This site will show CSS animations and other HTML stuff.</p>
 
-    <!-- If you want to draw a rectangle, use <canvas> -->
+   <!-- If you want to draw a rectangle, use <canvas> -->
+    <div class="rect">
     <canvas id="myCanvas" width="150" height="150" style="border:0px solid #000000;"></canvas>
     <script>
         // Draw a rectangle using canvas
@@ -42,5 +56,6 @@
         ctx.fillStyle = "black";
         ctx.fillRect(80, 80, 50, 50); // Draws a blue rectangle at (80, 80) with width 50 and height 50
     </script>
+    </div>
 </body>
 </html>
