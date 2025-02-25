@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Creator</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevents scrolling */
+            background: black;
+            touch-action: none; /* Prevents touch scrolling & gestures */
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="galaxyCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById("galaxyCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let stars = [];
+
+        class Star {
+            constructor(x, y, vx, vy) {
+                this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.mass = Math.random() * 2 + 1;
+                this.color = `hsl(${Math.random() * 360}, 100%, 80%)`;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.applyGravity();
+            }
+
+            applyGravity() {
+                stars.forEach(star => {
+                    if (star !== this) {
+                        let dx = star.x - this.x;
+                        let dy = star.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < 5) return;
+                        let force = (this.mass * star.mass) / (distance * distance);
+                        let ax = (force * dx) / distance;
+                        let ay = (force * dy) / distance;
+                        this.vx += ax;
+                        this.vy += ay;
+                    }
+                });
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.mass, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function animate() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        canvas.addEventListener("click", (event) => {
+            let angle = Math.random() * Math.PI * 2;
+            let speed = Math.random() * 2;
+            let vx = Math.cos(angle) * speed;
+            let vy = Math.sin(angle) * speed;
+            stars.push(new Star(event.clientX, event.clientY, vx, vy));
+        });
+
+        // Prevent scrolling with keyboard & mouse wheel
+        window.addEventListener("wheel", (event) => event.preventDefault(), { passive: false });
+        window.addEventListener("keydown", (event) => {
+            if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(event.key)) {
+                event.preventDefault();
+            }
+        });
+
+        animate();
+    </script>
+</body>
+</html>
