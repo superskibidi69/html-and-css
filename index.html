@@ -164,16 +164,6 @@
             }
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
         }
 
         .animated-heading {
@@ -267,9 +257,7 @@
         <p>
             CSS keyframes allow you to create animations by defining styles at various points in the animation sequence. You can control the intermediate steps of the animation using percentages.
         </p>
-        <p>
-            Here's an unstyled button:
-        </p>
+        <p>Here's an unstyled button:</p>
         <button>Unstyled button</button>
         <p>Some styled ones:</p>
         <button class="styled-button">Styled button 1</button>
@@ -277,21 +265,14 @@
     <!-- Optional: Button with Pulse Effect -->
     <button class="styled-button pulse-effect" style="margin-left: 10px;">Styled button 2</button>
         <pre>
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.pulse-effect {
-    animation: pulse 2s infinite;
-}
+@keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
         </pre>
     </section>
 
