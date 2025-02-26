@@ -5,6 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML and CSS</title>
     <style>
+             .styled-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        /* Hover Effect */
+        .styled-button:hover {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Active (Click) Effect */
+        .styled-button:active {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+        }
+
+        /* Optional: Add a pulse animation for extra flair */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .styled-button.pulse-effect {
+            animation: pulse 2s infinite;
+        }
         /* Basic Reset */
         * {
             margin: 0;
@@ -222,8 +268,14 @@
             CSS keyframes allow you to create animations by defining styles at various points in the animation sequence. You can control the intermediate steps of the animation using percentages.
         </p>
         <p>
-            Here's an example of a simple pulse animation using keyframes:
+            Here's an unstyled button:
         </p>
+        <button>Unstyled button</button>
+        <p>Some styled ones:</p>
+        <button class="styled-button">Styled button 1</button>
+
+    <!-- Optional: Button with Pulse Effect -->
+    <button class="styled-button pulse-effect" style="margin-left: 10px;">Styled button 2</button>
         <pre>
 @keyframes pulse {
     0% {
@@ -241,10 +293,6 @@
     animation: pulse 2s infinite;
 }
         </pre>
-        <p>
-            Try hovering over the button below to see a hover effect combined with a pulse animation:
-        </p>
-        <a href="#" class="button pulse-effect">Hover Me!</a>
     </section>
 
     <footer>
