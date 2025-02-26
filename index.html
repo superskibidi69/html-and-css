@@ -34,22 +34,8 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             transform: translateY(0);
         }
-
-        /* Optional: Add a pulse animation for extra flair */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
         .styled-button.pulse-effect {
-            animation: pulse 2s infinite;
+            animation: pulse 1s infinite;
         }
         /* Basic Reset */
         * {
@@ -69,7 +55,7 @@
 
         /* Header Styling */
         header {
-            background: linear-gradient(135deg, #333, #555);
+            background: radial-gradient(135deg, #333, #555);
             color: #fff;
             padding: 20px 0;
             text-align: center;
